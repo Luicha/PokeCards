@@ -1,0 +1,163 @@
+/* border-box es para que no crezca el div si crece lo de adentro */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/*El :root es para ir a la raíz y cambiar variables para despúes*/
+/*para poder usar var(--background) en lugar del Hex, por ejemplo*/
+:root {
+    --background: #2d587d;
+    --pokefondo: #f2cb05;
+    --cardBackground: #f28705;
+    --deselectedCard: #f06424;
+    --progressBar: #F20544;
+    --white: #FFF;
+}
+
+body {
+    background: var(--background);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+.poke-contador {
+    width: 50px;
+}
+
+.main-container {
+    display: flex;
+    
+}
+
+.card-container {
+    border: 1px solid black;
+    width: 200px;
+    height: 270px;
+    border-radius: 12px;
+    background-color: var(--cardBackground);
+    padding: 15px;
+    box-shadow: 0 5px 8px;
+    position: relative;
+    margin: auto;
+    z-index: -2;
+    overflow: hidden;
+} /*Position relative es para que me tome como padre*/
+
+
+.card-container:hover {
+    background-color: var(--progressBar);   
+    transition: 500ms; 
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.numero {
+    background-color: var(--progressBar);
+    /*position absoluta lo toma como padre al card solo si tiene relative*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    text-align: center;
+    color: var(--white);
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.nombre {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 1.2em;
+}
+
+.circulo {
+    background-color: var(--progressBar);
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    /*z-index es para que esté detrás o delante de otra cosa (-1 atrás de 0, 1,...*/
+    z-index: -1;
+}
+
+.poke-img {
+    width: 110px;
+    height: 110px;
+    display: block;
+    margin: 30px auto 15px;
+}
+
+.stats {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 2px;
+}
+
+.stats-img {
+    width: 20px;
+    height: 20px;
+}
+
+.stats-progress {
+    /*El webkit este le quita los valores al progress*/
+    -webkit-appearance: none;
+   
+}
+
+.stats-progress::-webkit-progress-bar {
+    background-color: var(--pokefondo);
+    border-radius: 10px;
+}
+
+.stats-progress::-webkit-progress-value {
+    background-color: cornflowerblue;
+    border-radius: 10px;
+}
+
+.bloque {
+    background-color: #f28705;
+    width: 100px;
+    margin: auto;
+}
+.linea {
+    background-color: #F20544;
+    margin: auto;
+    display: block;
+    width: 150px;
+}
+
+.btn-container {
+    width: 120px;
+    padding: 0 30px;
+    margin-top: 150px;
+}
+
+.btn {
+    background-color: var(--white);
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border-radius: 50%;
+    padding: 0 4px 0 2px;
+    cursor: pointer;
+    font-size: 35px;
+}
+
+.btn-next {
+    padding-left: 5px;
+}
+
+.btn:hover {
+    background-color: black; 
+    color: white;  
+    transition: 500ms; 
+}
